@@ -2,27 +2,27 @@ package com.tictactoe.strategy;
 
 import com.tictactoe.model.Board;
 import com.tictactoe.model.Cell;
+import com.tictactoe.model.CellState;
 import com.tictactoe.model.Move;
 
-import java.util.Random;
+import java.util.List;
 
 public class EasyBotPlayingStrategy implements BotPlayingStrategy {
-    Random random;
-
     EasyBotPlayingStrategy() {
-        random = new Random();
     }
 
     @Override
     public Move makeMove(Board board) {
-        Cell[][] cells = board.getCells();
+        List<List<Cell>> cells = board.getCells();
 
-        for (Cell[] row : cells) {
+        for (List<Cell> row : cells) {
             for (Cell cell : row) {
-                if(cell!=null){
-                    return new Move(null, new Cell());
+                if (cell.getCellState().equals(CellState.EMPTY)) {
+                    return new Move(null, new Cell(cell.getRow(), cell.getCol()));
                 }
             }
         }
+
+        return null;
     }
 }

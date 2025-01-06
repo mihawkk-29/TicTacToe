@@ -10,6 +10,15 @@ public class Cell {
         this.row = row;
         this.col = col;
         this.cellState = CellState.EMPTY;
+        this.symbol = null;
+    }
+
+    public void display() {
+        if (cellState.equals(CellState.EMPTY)) {
+            System.out.print("|   |");
+        } else {
+            System.out.print("| " + symbol.symbol() + " |");
+        }
     }
 
     public CellState getCellState() {

@@ -3,14 +3,17 @@ package com.tictactoe.model.player;
 import com.tictactoe.model.Board;
 import com.tictactoe.model.Move;
 import com.tictactoe.model.Symbol;
+import com.tictactoe.model.User;
 
 public abstract class Player {
-    private Symbol symbol;
+    private User user;
     protected PlayerType playerType;
+    private Symbol symbol;
 
-    public Player(PlayerType playerType, Symbol symbol) {
-        this.symbol = symbol;
+    public Player(User user, PlayerType playerType, Symbol symbol) {
+        this.user = user;
         this.playerType = playerType;
+        this.symbol = symbol;
     }
 
     public Symbol getSymbol() {
@@ -19,6 +22,10 @@ public abstract class Player {
 
     public PlayerType getPlayerType() {
         return playerType;
+    }
+
+    public String getName() {
+        return user.getName();
     }
 
     public abstract Move makeMove(Board board);

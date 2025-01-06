@@ -3,8 +3,8 @@ package com.tictactoe.model;
 import com.tictactoe.model.player.Player;
 
 public class Move {
-    Player player;
-    Cell cell;
+    private Player player;
+    private Cell cell;
 
     public Move(Player player, Cell cell) {
         this.player = player;
@@ -15,7 +15,15 @@ public class Move {
         return player;
     }
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public Cell getCell() {
         return cell;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
     }
 }
